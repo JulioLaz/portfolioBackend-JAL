@@ -54,7 +54,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-             <!--<version>5.6.3</version>-->
+            <!--<version>5.6.3</version>-->
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -103,6 +103,14 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        
+        
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
