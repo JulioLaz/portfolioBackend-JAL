@@ -2,11 +2,11 @@ package com.backend.jal.security.service;
 
 import com.backend.jal.security.entity.Usuario;
 import com.backend.jal.security.repository.IUsuarioRepository;
-//import javax.transaction.Transactional;
+import javax.transaction.Transactional;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
