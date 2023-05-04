@@ -30,10 +30,18 @@ public class CExperiencia {
 
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list() {
-        List<Experiencia> list = sExperiencia.list();
+        List<Experiencia> list = sExperiencia.listOrderBy();
+//        List<Experiencia> list = sExperiencia.list();
+        
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    @GetMapping("/usuarioId/{usuarioId}")
+        public ResponseEntity<List<Experiencia>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        List<Experiencia> idioma = sExperiencia.findByUsuarioId(usuarioId);
+        return new ResponseEntity(idioma, HttpStatus.OK);
+    }
+        
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
@@ -51,7 +59,13 @@ public class CExperiencia {
         sExperiencia.delete(id);
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
-
+    @DeleteMapping("/deleteUsuarioId/{usuarioId}")
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        sExperiencia.deleteUsuarioId(usuarioId);
+        return new ResponseEntity(new Mensaje("Experiencia eliminada por usuarioId"), HttpStatus.OK);
+    }
+    
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp) {
         if (StringUtils.isBlank(dtoexp.getNombreE())) {
@@ -62,7 +76,7 @@ public class CExperiencia {
 //            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
 //        }
 
-        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(),dtoexp.getCargoE(),dtoexp.getDescripcionE(),dtoexp.getStartE(),dtoexp.getEndE(),dtoexp.getCityE());
+        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(),dtoexp.getCargoE(),dtoexp.getDescripcionE(),dtoexp.getStartE(),dtoexp.getEndE(),dtoexp.getCityE(),dtoexp.getUsuarioId());
         sExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);

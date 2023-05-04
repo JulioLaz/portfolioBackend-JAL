@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
@@ -43,6 +42,17 @@ public class SFrases {
     public boolean existsByFrases(String frases) {
         return rfrases.existsByFrases(frases);
     }
-}
+    
+    public List<Frases> findByUsuarioId(int usuarioId){
+        return rfrases.findByUsuarioId( usuarioId);
+    }
+    public List<Frases> findByFrases(int usuarioId){
+        return rfrases.findByFrases( usuarioId);
+    }
 
+    public void deleteUsuarioId(int usuarioId){
+        rfrases.deleteByUsuarioId(usuarioId);
+    }     
+}
+//findByFrases
 

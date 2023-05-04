@@ -18,17 +18,26 @@ public class Experiencia implements Serializable {
     private String startE;
     private String endE;
     private String cityE;
-
+    private int usuarioId;
+    
     public Experiencia() {
     }
-
-    public Experiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE) {
+    public Experiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE, int usuarioId) {
         this.nombreE = nombreE;
         this.cargoE = cargoE;
         this.descripcionE = descripcionE;
         this.startE = startE;
         this.endE = endE;
         this.cityE = cityE;
+        this.usuarioId = usuarioId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public int getId() {

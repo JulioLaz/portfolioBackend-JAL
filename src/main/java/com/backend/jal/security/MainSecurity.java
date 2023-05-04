@@ -42,7 +42,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("**").permitAll()
+                .antMatchers(
+                        "**"
+                ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
@@ -51,6 +53,9 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
+//                            "/auth/**",
+//                        "/email-password/**"
+    
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();

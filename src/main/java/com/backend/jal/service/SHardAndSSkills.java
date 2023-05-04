@@ -1,6 +1,7 @@
 package com.backend.jal.service;
 
 import com.backend.jal.entity.HardAndSSkills;
+import com.backend.jal.entity.Idiomas;
 import com.backend.jal.repository.RHardAndSSkills;
 import java.util.List;
 import java.util.Optional;
@@ -43,4 +44,12 @@ public class SHardAndSSkills {
     public boolean existsByNombre(String nombre) {
         return rhss.existsByNombre(nombre);
     }
+    
+    public List<HardAndSSkills> findByUsuarioId(int usuarioId){
+        return rhss.findByUsuarioId( usuarioId);
+    }
+    
+    public void deleteUsuarioId(int usuarioId){
+        rhss.deleteByUsuarioId(usuarioId);
+    }      
 }

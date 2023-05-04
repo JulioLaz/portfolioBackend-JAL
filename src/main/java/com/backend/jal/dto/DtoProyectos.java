@@ -8,18 +8,30 @@ public class DtoProyectos {
     private String imgProyecto;
     private String imgLenguajes;
     private String urlProyecto;
-
+    private int usuarioId;
+    
     public DtoProyectos() {
     }
 
-    public DtoProyectos(String proyectos, String descripcion, String fecha, String imgProyecto, String imgLenguajes, String urlProyecto) {
+    public DtoProyectos(String proyectos, String descripcion, String fecha, String imgProyecto, String imgLenguajes, String urlProyecto, int usuarioId) {
         this.proyectos = proyectos;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.imgProyecto = imgProyecto;
         this.imgLenguajes = imgLenguajes;
         this.urlProyecto = urlProyecto;
+        this.usuarioId = usuarioId;
     }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+
 
     public String getProyectos() {
         return proyectos;

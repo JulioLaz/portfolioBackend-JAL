@@ -1,6 +1,7 @@
 package com.backend.jal.security.entity;
 
 import com.backend.jal.security.enums.RolNombre;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-public class Rol {
+public class Rol implements Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,7 +24,7 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(RolNombre rolNombre) {
+    public Rol(@NotNull RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
 

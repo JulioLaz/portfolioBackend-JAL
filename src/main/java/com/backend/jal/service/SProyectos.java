@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -43,4 +42,12 @@ public class SProyectos {
     public boolean existsByProyectos(String proyectos) {
         return rProyectos.existsByProyectos(proyectos);
     }
+    
+    public List<Proyectos> findByUsuarioId(int usuarioId){
+        return rProyectos.findByUsuarioId( usuarioId);
+    }
+    
+    public void deleteUsuarioId(int usuarioId){
+        rProyectos.deleteByUsuarioId(usuarioId);
+    }      
 }

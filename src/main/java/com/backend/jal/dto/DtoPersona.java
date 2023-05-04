@@ -1,46 +1,52 @@
 package com.backend.jal.dto;
 
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class DtoPersona {
 
-    @NotNull
+//    @NotNull
+    @Id
+    private int id;
+    
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String nombre;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String apellido;
 
-    @NotNull
-    @Size(min = 1, max = 300, message = "No cumple con especificaciones")
+//    @NotNull
+//    @Size(min = 1, max = 300, message = "No cumple con especificaciones")
     private String img;
 
 //    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String title;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String edad;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String city;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String titleAbout;
 
-    @NotNull
-    @Size(min = 1, max = 500, message = "No cumple con especificaciones")
+//    @NotNull
+//    @Size(min = 1, max = 500, message = "No cumple con especificaciones")
     private String about;
 
     public DtoPersona() {
     }
 
-    public DtoPersona(String nombre, String apellido, String img, String title, String edad, String city, String titleAbout, String about) {
+    public DtoPersona(int id, String nombre, String apellido, String img, String title, String edad, String city, String titleAbout, String about) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.img = img;
@@ -50,6 +56,16 @@ public class DtoPersona {
         this.titleAbout = titleAbout;
         this.about = about;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 
     public String getNombre() {
         return nombre;

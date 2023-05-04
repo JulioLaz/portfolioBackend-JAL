@@ -1,5 +1,6 @@
 package com.backend.jal.security.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +29,19 @@ public class Usuario {
     private String email;
     @NotNull
     private String password;
+    private String tokenPassword;
+    
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable(name = "usuario_rol", 
+            joinColumns = @JoinColumn(name = "usuario_id"), 
+            inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
     public Usuario() {
+    }
+
+    public Usuario(String nombre) {
+        this.nombre = nombre;
     }
 
     public Usuario(String nombre, String nombreUsuario, String email, String password) {
@@ -40,6 +49,14 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
+    }
+
+    public String getTokenPassword() {
+        return tokenPassword;
+    }
+
+    public void setTokenPassword(String tokenPassword) {
+        this.tokenPassword = tokenPassword;
     }
 
     public int getId() {

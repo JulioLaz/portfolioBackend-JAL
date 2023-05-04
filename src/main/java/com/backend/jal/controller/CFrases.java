@@ -44,6 +44,18 @@ public class CFrases {
         return new ResponseEntity(hss, HttpStatus.OK);
     }
 
+        @GetMapping("/usuarioId/{usuarioId}")
+        public ResponseEntity<List<Frases>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+            List<Frases> idioma = sfrases.findByUsuarioId(usuarioId);
+            return new ResponseEntity(idioma, HttpStatus.OK);
+    }
+        
+        @GetMapping("/frasesUsuarioId/{usuarioId}")
+        public ResponseEntity<List<Frases>> getIdiomasByFrases(@PathVariable("usuarioId") int usuarioId){
+            List<Frases> idioma = sfrases.findByFrases(usuarioId);
+            return new ResponseEntity(idioma, HttpStatus.OK);
+    }    
+        
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sfrases.existsById(id)) {
@@ -53,16 +65,22 @@ public class CFrases {
         return new ResponseEntity(new Mensaje("Frases eliminado"), HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteUsuarioId/{usuarioId}")
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        sfrases.deleteUsuarioId(usuarioId);
+        return new ResponseEntity(new Mensaje("Educacion eliminada por usuarioId"), HttpStatus.OK);
+    }    
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoFrases dtofrases) {
         if (StringUtils.isBlank(dtofrases.getAutor())) {
             return new ResponseEntity(new Mensaje("El nombre del autor es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (sfrases.existsByFrases(dtofrases.getAutor())) {
-            return new ResponseEntity(new Mensaje("Esa Frases ya existe"), HttpStatus.BAD_REQUEST);
-        }
+//        if (sfrases.existsByFrases(dtofrases.getAutor())) {
+//            return new ResponseEntity(new Mensaje("Esa Frases ya existe"), HttpStatus.BAD_REQUEST);
+//        }
 
-        Frases hss = new Frases(dtofrases.getAutor(),dtofrases.getFrases());
+        Frases hss = new Frases(dtofrases.getAutor(),dtofrases.getFrases(),dtofrases.getSeccionId(),dtofrases.getUsuarioId());
         sfrases.save(hss);
 
         return new ResponseEntity(new Mensaje("Frases agregada"), HttpStatus.OK);

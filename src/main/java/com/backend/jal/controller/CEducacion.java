@@ -28,9 +28,16 @@ public class CEducacion {
     
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list(){
-        List<Educacion> list = sEducacion.list();
+        List<Educacion> list = sEducacion.listORderBy();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
+        @GetMapping("/usuarioId/{usuarioId}")
+        public ResponseEntity<List<Educacion>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        List<Educacion> idioma = sEducacion.findByUsuarioId(usuarioId);
+        return new ResponseEntity(idioma, HttpStatus.OK);
+    }
+        
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
         if(!sEducacion.existsById(id)){
@@ -49,6 +56,12 @@ public class CEducacion {
         sEducacion.delete(id);
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
     }
+
+    @DeleteMapping("/deleteUsuarioId/{usuarioId}")
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        sEducacion.deleteUsuarioId(usuarioId);
+        return new ResponseEntity(new Mensaje("Educacion eliminada por usuarioId"), HttpStatus.OK);
+    }
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoEducacion dtoeducacion){
@@ -59,7 +72,7 @@ public class CEducacion {
 //            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
 //        }
         
-        Educacion educacion = new Educacion(dtoeducacion.getSchoolE(),dtoeducacion.getTitleE(),dtoeducacion.getTimeE(),dtoeducacion.getStartE(),dtoeducacion.getEndE(),dtoeducacion.getEstadoE(),dtoeducacion.getCityE(),dtoeducacion.getImgE()
+        Educacion educacion = new Educacion(dtoeducacion.getSchoolE(),dtoeducacion.getTitleE(),dtoeducacion.getTimeE(),dtoeducacion.getStartE(),dtoeducacion.getEndE(),dtoeducacion.getEstadoE(),dtoeducacion.getCityE(),dtoeducacion.getImgE(),dtoeducacion.getUsuarioId()
             );
             sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);

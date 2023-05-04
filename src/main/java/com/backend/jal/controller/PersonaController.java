@@ -27,11 +27,19 @@ public class PersonaController {
 @Autowired
     ImplPersonaService implPersonaService;
     
+//    @GetMapping("/lista")
+//    public ResponseEntity<List<Persona>> list(){
+//        List<Persona> list = implPersonaService.list();
+//        return new ResponseEntity(list, HttpStatus.OK);
+//    }
+    
     @GetMapping("/lista")
     public ResponseEntity<List<Persona>> list(){
-        List<Persona> list = implPersonaService.list();
+        List<Persona> list = implPersonaService.listOrderBy();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
+    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id")int id){
         if(!implPersonaService.existsById(id)){
@@ -60,7 +68,7 @@ public class PersonaController {
 //            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
 //        }
         
-        Persona persona = new Persona(dtopersona.getNombre(),dtopersona.getApellido(),dtopersona.getImg(),dtopersona.getTitle(),dtopersona.getEdad(),dtopersona.getCity(),dtopersona.getTitleAbout(),dtopersona.getAbout()
+        Persona persona = new Persona(dtopersona.getId(),dtopersona.getNombre(),dtopersona.getApellido(),dtopersona.getImg(),dtopersona.getTitle(),dtopersona.getEdad(),dtopersona.getCity(),dtopersona.getTitleAbout(),dtopersona.getAbout()
             );
             implPersonaService.save(persona);
         return new ResponseEntity(new Mensaje("Persona creada"), HttpStatus.OK);
