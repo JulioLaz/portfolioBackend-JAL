@@ -4,6 +4,8 @@ com\backend\jal\security\dto\JwtDto.class
 com\backend\jal\controller\CExperiencia.class
 com\backend\jal\service\SProyectos.class
 com\backend\jal\dto\DtoHardAndSSkills.class
+com\backend\jal\correo\controller\CorreoController.class
+com\backend\jal\principal\Enviar.class
 com\backend\jal\repository\RProyectos.class
 com\backend\jal\security\entity\Rol.class
 com\backend\jal\controller\CIdiomas.class
@@ -22,10 +24,12 @@ com\backend\jal\repository\RFrases.class
 com\backend\jal\security\MainSecurity.class
 com\backend\jal\security\jwt\JwtTokenFilter.class
 com\backend\jal\controller\CEducacion.class
+com\backend\jal\correo\dto\ChangePasswordDTO.class
 com\backend\jal\service\SEducacion.class
 com\backend\jal\security\service\RolService.class
 com\backend\jal\entity\Persona.class
 com\backend\jal\security\service\UsuarioService.class
+com\backend\jal\correo\service\CorreoService.class
 com\backend\jal\entity\HardAndSSkills.class
 com\backend\jal\service\SIdiomas.class
 com\backend\jal\repository\REducacion.class
@@ -34,6 +38,7 @@ com\backend\jal\dto\DtoFrases.class
 com\backend\jal\controller\PersonaController.class
 com\backend\jal\dto\DtoEducacion.class
 com\backend\jal\service\SHardAndSSkills.class
+com\backend\jal\correo\dto\EmailValuesDTO.class
 com\backend\jal\entity\Idiomas.class
 com\backend\jal\security\entity\UsuarioPrincipal.class
 com\backend\jal\dto\DtoProyectos.class
@@ -50,5 +55,6 @@ com\backend\jal\security\dto\LoginUsuario.class
 com\backend\jal\controller\CProyectos.class
 com\backend\jal\controller\CFrases.class
 com\backend\jal\entity\Experiencia.class
+com\backend\jal\correo\config\ThymeleafTemplateConfig.class
 com\backend\jal\dto\DtoIdiomas.class
 com\backend\jal\security\entity\Usuario.class

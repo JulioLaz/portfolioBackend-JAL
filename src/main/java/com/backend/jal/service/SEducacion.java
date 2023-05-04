@@ -14,9 +14,13 @@ import org.springframework.stereotype.Service;
 public class SEducacion {
     @Autowired
     REducacion rEducacion;
-    
+//    findAllByOrderByTimeEDesc
     public List<Educacion> list(){
         return rEducacion.findAll();
+    }
+    
+    public List<Educacion> listORderBy(){
+        return rEducacion.findAllByOrderByTimeEDesc();
     }
     
     public Optional<Educacion> getOne(int id){
@@ -42,4 +46,11 @@ public class SEducacion {
     public boolean existsBySchoolE(String schoolE){
         return rEducacion.existsBySchoolE(schoolE);
     }
+             
+    public List<Educacion> findByUsuarioId(int usuarioId){
+        return rEducacion.findByUsuarioId( usuarioId);
+    }
+    public void deleteUsuarioId(int usuarioId){
+        rEducacion.deleteByUsuarioId(usuarioId);
+    }    
 }

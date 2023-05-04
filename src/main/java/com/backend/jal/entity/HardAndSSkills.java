@@ -23,13 +23,16 @@ public class HardAndSSkills {
 //    @Size(min = 1, max = 300,message = "No cumple con especificaciones")
     private String imgURL;
 
+    private int usuarioId;
+    
     public HardAndSSkills() {
     }
 
-    public HardAndSSkills(String nombre, String porcentaje, String imgURL) {
+    public HardAndSSkills(String nombre, String porcentaje, String imgURL, int usuarioId) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
         this.imgURL = imgURL;
+        this.usuarioId = usuarioId;
     }
 
     public int getId() {
@@ -64,5 +67,12 @@ public class HardAndSSkills {
         this.imgURL = imgURL;
     }
 
-    
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:remove="all">Change-password</title>
+        <!--<link rel="stylesheet" type="text/css" href="StyleTemplates.css" />-->
+    </head>
+    <body>
+        <div style="border:1px solid black;border-radius: 10px;background-color: gray">
+                <h2 style="text-align: center;color: red" >Recuperar Contraseña</h2>
+                <h3 style="text-align: center" ><span>Hola </span><span th:text="${userName}"></span></h3>
+                <h4 style="font-size: 16px; color:darkblue;text-align: center ">Haz click en el siguiente enlace para acceder a tu cuenta</h4>
+                <!--<div style="display: flex;justify-content: center;width: 100%;border: 1px solid black;text-align: center">-->
+                <a th:href="@{${url}}" style="text-decoration: none">
+                        <button style="background-color:lightblue;border:1px solid black;border-radius: 10px;margin:20px 40%; width: 200px;height: 50px;font-size: 14px;">
+                        Ir a mi cuenta
+                        </button>
+                    </a>
+                <!--</div>-->
+        </div>
+    </body>
+</html>

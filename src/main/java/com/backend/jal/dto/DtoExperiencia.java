@@ -16,17 +16,28 @@ public class DtoExperiencia {
     private String endE;
     @NotBlank
     private String cityE;
-
+    @NotBlank
+    private int usuarioId;
+    
     public DtoExperiencia() {
     }
 
-    public DtoExperiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE) {
+    public DtoExperiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE, int usuarioId) {
         this.nombreE = nombreE;
         this.cargoE = cargoE;
         this.descripcionE = descripcionE;
         this.startE = startE;
         this.endE = endE;
         this.cityE = cityE;
+        this.usuarioId = usuarioId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getNombreE() {

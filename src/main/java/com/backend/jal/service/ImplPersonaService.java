@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service
@@ -43,4 +42,8 @@ public class ImplPersonaService {
     public boolean existsByNombre(String nombre) {
         return iPersonaRepository.existsByNombre(nombre);
     }
+    
+          public List<Persona> listOrderBy(){
+         return iPersonaRepository.findAllByOrderByIdDesc();
+     }    
 }

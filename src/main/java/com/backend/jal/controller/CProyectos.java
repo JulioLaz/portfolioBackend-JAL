@@ -32,6 +32,13 @@ public class CProyectos {
         List<Proyectos> list = sProyectos.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    
+    @GetMapping("/usuarioId/{usuarioId}")
+    public ResponseEntity<List<Proyectos>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+            List<Proyectos> idioma = sProyectos.findByUsuarioId(usuarioId);
+            return new ResponseEntity(idioma, HttpStatus.OK);
+    }
+    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyectos> getById(@PathVariable("id")int id){
         if(!sProyectos.existsById(id)){
@@ -50,17 +57,23 @@ public class CProyectos {
         sProyectos.delete(id);
         return new ResponseEntity(new Mensaje("Proyectos eliminada"), HttpStatus.OK);
     }
+
+    @DeleteMapping("/deleteUsuarioId/{usuarioId}")
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        sProyectos.deleteUsuarioId(usuarioId);
+        return new ResponseEntity(new Mensaje("Proyecto eliminada por usuarioId"), HttpStatus.OK);
+    }
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoProyectos dtoproyectos){
-        if(StringUtils.isBlank(dtoproyectos.getImgProyecto())){
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
+//        if(StringUtils.isBlank(dtoproyectos.getImgProyecto())){
+//            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+//        }
 //        if(sProyectos.existsBySchoolE(dtoproyectos.getProyecto())){
 //            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
 //        }
         
-        Proyectos proyectos = new Proyectos(dtoproyectos.getProyectos(),dtoproyectos.getDescripcion(),dtoproyectos.getFecha(),dtoproyectos.getImgProyecto(),dtoproyectos.getImgLenguajes(),dtoproyectos.getUrlProyecto()
+        Proyectos proyectos = new Proyectos(dtoproyectos.getProyectos(),dtoproyectos.getDescripcion(),dtoproyectos.getFecha(),dtoproyectos.getImgProyecto(),dtoproyectos.getImgLenguajes(),dtoproyectos.getUrlProyecto(),dtoproyectos.getUsuarioId()
             );
             sProyectos.save(proyectos);
         return new ResponseEntity(new Mensaje("Proyecto creado"), HttpStatus.OK);

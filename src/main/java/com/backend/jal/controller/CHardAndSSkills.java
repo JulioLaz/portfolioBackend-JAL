@@ -40,11 +40,16 @@ public class CHardAndSSkills {
         if (!shss.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
         }
-
         HardAndSSkills hss = shss.getOne(id).get();
         return new ResponseEntity(hss, HttpStatus.OK);
     }
 
+        @GetMapping("/usuarioId/{usuarioId}")
+        public ResponseEntity<List<HardAndSSkills>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+//            List<HardAndSSkills> hss = shss.findByUsuarioId(usuarioId);
+              List<HardAndSSkills> hss= shss.findByUsuarioId(usuarioId);
+            return new ResponseEntity(hss, HttpStatus.OK);
+    } 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!shss.existsById(id)) {
@@ -54,16 +59,22 @@ public class CHardAndSSkills {
         return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteUsuarioId/{usuarioId}")
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+        shss.deleteUsuarioId(usuarioId);
+        return new ResponseEntity(new Mensaje("Educacion eliminada por usuarioId"), HttpStatus.OK);
+    }    
+    
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoHardAndSSkills dtohss) {
-        if (StringUtils.isBlank(dtohss.getNombre())) {
-            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (shss.existsByNombre(dtohss.getNombre())) {
-            return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
-        }
+//        if (StringUtils.isBlank(dtohss.getNombre())) {
+//            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+//        }
+//        if (shss.existsByNombre(dtohss.getNombre())) {
+//            return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
+//        }
 
-        HardAndSSkills hss = new HardAndSSkills(dtohss.getNombre(),dtohss.getPorcentaje(), dtohss.getImgURL());
+        HardAndSSkills hss = new HardAndSSkills(dtohss.getNombre(),dtohss.getPorcentaje(), dtohss.getImgURL(), dtohss.getUsuarioId());
         shss.save(hss);
 
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);

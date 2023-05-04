@@ -6,9 +6,6 @@ import com.backend.jal.correo.service.CorreoService;
 import com.backend.jal.security.controller.Mensaje;
 import com.backend.jal.security.entity.Usuario;
 import com.backend.jal.security.service.UsuarioService;
-//import emailpassword.dto.ChangePasswordDTO;
-//import emailpassword.dto.EmailValuesDTO;
-//import emailpassword.service.EmailService;
 import java.util.Optional;
 import java.util.UUID;
 import javax.validation.Valid;
@@ -18,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/email")
-//@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-julio-lazarte.web.app"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-julio-lazarte.web.app"})
 public class CorreoController {
     
     @Autowired
@@ -43,7 +41,7 @@ public class CorreoController {
 
     private static final String subject = "Cambio de Contraseña";
 
-    @PostMapping("enviar")
+    @PostMapping("/send")
     public ResponseEntity<?> sendEmailTemplate(@RequestBody EmailValuesDTO dto) {
         Optional<Usuario> usuarioOpt = usuarioService.getByNombreUsuarioOrEmail(dto.getMailTo());
         if(!usuarioOpt.isPresent())
@@ -68,7 +66,7 @@ public class CorreoController {
         return new ResponseEntity(new Mensaje("mensaje enviado"), HttpStatus.OK);
     }    
     
-    @PostMapping("/change-password")
+    @PostMapping("/changepassword")
     public ResponseEntity<?> changePassword(@Valid @RequestBody ChangePasswordDTO dto, BindingResult bindingResult) {
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);

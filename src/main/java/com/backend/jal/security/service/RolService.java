@@ -3,11 +3,11 @@ package com.backend.jal.security.service;
 import com.backend.jal.security.entity.Rol;
 import com.backend.jal.security.enums.RolNombre;
 import com.backend.jal.security.repository.IRolRepository;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -23,4 +23,13 @@ public class RolService {
     public void save(Rol rol) {
         irolRepository.save(rol);
     }
+    
+    public List<Rol> list(){
+        return irolRepository.findAll();
+    }
+    
+    public Optional<Rol> getOne(int id) {
+        return irolRepository.findById(id);
+    }
+    
 }

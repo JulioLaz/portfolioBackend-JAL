@@ -21,14 +21,13 @@ public class Educacion implements Serializable {
     private String endE;
     private String estadoE;
     private String cityE;
-    @NotNull
-    @Size(min = 1, max = 300,message = "No cumple con especificaciones")
     private String imgE;
-
+    private int usuarioId;
+    
     public Educacion() {
     }
 
-    public Educacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE) {
+    public Educacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE, int usuarioId) {
         this.schoolE = schoolE;
         this.titleE = titleE;
         this.timeE = timeE;
@@ -37,8 +36,17 @@ public class Educacion implements Serializable {
         this.estadoE = estadoE;
         this.cityE = cityE;
         this.imgE = imgE;
+        this.usuarioId = usuarioId;
     }
 
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+    
     public int getId() {
         return id;
     }

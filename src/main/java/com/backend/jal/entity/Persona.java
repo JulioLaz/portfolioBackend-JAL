@@ -1,5 +1,6 @@
 package com.backend.jal.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,47 +9,48 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Persona {
+public class Persona implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String nombre;
     
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String apellido;
 
-    @NotNull
-    @Size(min = 1, max = 300,message = "No cumple con especificaciones")
+//    @NotNull
+//    @Size(min = 1, max = 300,message = "No cumple con especificaciones")
     private String img;
 
 //    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String title;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String edad;
     
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String city;
 
-    @NotNull
+//    @NotNull
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String titleAbout;
     
-    @NotNull
-    @Size(min = 1, max = 500,message = "No cumple con especificaciones")
+//    @NotNull
+//    @Size(min = 1, max = 500,message = "No cumple con especificaciones")
     private String about;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String img, String title, String edad, String city, String titleAbout, String about) {
+    public Persona(int id, String nombre, String apellido, String img, String title, String edad, String city, String titleAbout, String about) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.img = img;
@@ -58,6 +60,8 @@ public class Persona {
         this.titleAbout = titleAbout;
         this.about = about;
     }
+
+ 
 
     public int getId() {
         return id;

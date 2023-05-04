@@ -19,6 +19,14 @@ public class SExperiencia {
          return rExperiencia.findAll();
      }
      
+          public List<Experiencia> listOrderBy(){
+         return rExperiencia.findAllByOrderByEndEDesc();
+     }
+          
+    public List<Experiencia> findByUsuarioId(int usuarioId){
+        return rExperiencia.findByUsuarioId( usuarioId);
+    }
+         
      public Optional<Experiencia> getOne(int id){
          return rExperiencia.findById(id);
      }
@@ -42,4 +50,11 @@ public class SExperiencia {
      public boolean existsByNombreE(String nombreE){
          return rExperiencia.existsByNombreE(nombreE);
      }
+
+    public void deleteUsuarioId(int usuarioId){
+        rExperiencia.deleteByUsuarioId(usuarioId);
+    }     
+//         public List<Experiencia> findAllByOrderByNombreAsc(){
+//        return rExperiencia.findAllByOrderByNombreAsc();
+//    }
 }

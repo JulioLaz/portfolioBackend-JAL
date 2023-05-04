@@ -19,11 +19,13 @@ public class DtoEducacion {
     private String cityE;
     @NotBlank
     private String imgE;
+    @NotBlank
+    private int usuarioId;
 
     public DtoEducacion() {
     }
 
-    public DtoEducacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE) {
+    public DtoEducacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE, int usuarioId) {
         this.schoolE = schoolE;
         this.titleE = titleE;
         this.timeE = timeE;
@@ -32,6 +34,15 @@ public class DtoEducacion {
         this.estadoE = estadoE;
         this.cityE = cityE;
         this.imgE = imgE;
+        this.usuarioId = usuarioId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getSchoolE() {
