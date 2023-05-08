@@ -61,10 +61,10 @@ com\backend\jal\repository\RExperiencia.class
 com\backend\jal\dto\DtoUser.class
 com\backend\jal\security\enums\RolNombre.class
 com\backend\jal\security\dto\NuevoUsuario.class
-WebConfig.class
 com\backend\jal\security\dto\LoginUsuario.class
 com\backend\jal\controller\CProyectos.class
 com\backend\jal\controller\CFrases.class
+com\backend\jal\config\WebConfig.class
 com\backend\jal\entity\Experiencia.class
 com\backend\jal\correo\config\ThymeleafTemplateConfig.class
 com\backend\jal\dto\DtoIdiomas.class
