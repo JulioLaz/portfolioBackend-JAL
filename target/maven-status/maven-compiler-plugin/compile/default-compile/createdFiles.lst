@@ -47,6 +47,7 @@ com\backend\jal\dto\DtoEducacion.class
 com\backend\jal\service\SHardAndSSkills.class
 com\backend\jal\correo\dto\EmailValuesDTO.class
 com\backend\jal\dto\DtoCursos.class
+.netbeans_automatic_build
 com\backend\jal\entity\Idiomas.class
 com\backend\jal\security\entity\UsuarioPrincipal.class
 com\backend\jal\dto\DtoProyectos.class
