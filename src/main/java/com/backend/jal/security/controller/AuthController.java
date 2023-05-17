@@ -52,8 +52,6 @@ public class AuthController {
     JwtProvider jwtProvider;
     @Autowired
     IUsuarioRepository iusuarioRepository;
-//    @Autowired
-//    JwtDto jwtDto;
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
@@ -112,10 +110,6 @@ public class AuthController {
             return new ResponseEntity(new Mensaje("USUARIO es obligatorio"), HttpStatus.BAD_REQUEST);
         } 
         
-//        if(!iusuarioRepository.existsByNombre(loginUsuario.getNombreUsuario())){
-//            return new ResponseEntity(new Mensaje("Ese nombre no existe " ), HttpStatus.BAD_REQUEST);
-//        }
-
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos vacíos"), HttpStatus.BAD_REQUEST);
         }
@@ -169,14 +163,4 @@ public class AuthController {
         return new ResponseEntity(nombres, HttpStatus.OK);
     }
     
-//        @GetMapping("/usuarioIdXid/{usuarioId}")
-//    public int getRolId(@PathVariable("id") int usuarioId) {
-//        List<Rol> rol = rolService.findByUsuarioId(usuarioId);
-//        for (Rol id : rol) {
-//            if (id.getId() != 0) {
-//                return id.getId();
-//            }
-//        }
-//        return 0;
-//    }
 }
