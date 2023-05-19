@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-julio-lazarte.web.app"})
 public class CEducacion {
 
-private final SEducacion sEducacion;
+    private final SEducacion sEducacion;
 
-@Autowired
-        public CEducacion(SEducacion sEducacion) {
-    this.sEducacion = sEducacion;
+    @Autowired
+    public CEducacion(SEducacion sEducacion) {
+        this.sEducacion = sEducacion;
     }
 
     @GetMapping("/lista")
@@ -37,11 +37,17 @@ private final SEducacion sEducacion;
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @GetMapping("/usuarioId/{usuarioId}")
-    public ResponseEntity<List<Educacion>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
-        List<Educacion> idioma = sEducacion.findByUsuarioId(usuarioId);
-        return new ResponseEntity(idioma, HttpStatus.OK);
-    }
+//    @GetMapping("/usuarioId/{usuarioId}")
+//    public ResponseEntity<List<Educacion>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
+//        List<Educacion> edu = sEducacion.findByUsuarioId(usuarioId);
+//        return new ResponseEntity(edu, HttpStatus.OK);
+//    }
+@GetMapping("/usuarioId/{usuarioId}")
+public ResponseEntity<List<Educacion>> getEducacionesByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
+    List<Educacion> educaciones = sEducacion.findByUsuarioIdOrderByEndEDesc(usuarioId);
+    return new ResponseEntity<>(educaciones, HttpStatus.OK);
+}
+
 
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id) {

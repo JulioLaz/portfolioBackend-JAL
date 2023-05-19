@@ -54,4 +54,9 @@ public class SEducacion {
     public void deleteUsuarioId(int usuarioId) {
         rEducacion.deleteByUsuarioId(usuarioId);
     }
+
+public List<Educacion> findByUsuarioIdOrderByEndEDesc(int usuarioId) {
+    return rEducacion.findByUsuarioIdOrderByEndEDesc(usuarioId);
+}
+
 }

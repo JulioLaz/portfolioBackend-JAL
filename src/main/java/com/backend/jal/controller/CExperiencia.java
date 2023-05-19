@@ -39,11 +39,18 @@ private final SExperiencia sExperiencia;
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @GetMapping("/usuarioId/{usuarioId}")
-        public ResponseEntity<List<Experiencia>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
-        List<Experiencia> idioma = sExperiencia.findByUsuarioId(usuarioId);
-        return new ResponseEntity(idioma, HttpStatus.OK);
-    }
+//    @GetMapping("/usuarioId/{usuarioId}")
+//        public ResponseEntity<List<Experiencia>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
+//        List<Experiencia> exp = sExperiencia.findByUsuarioId(usuarioId);
+//        return new ResponseEntity(exp, HttpStatus.OK);
+//    }
+
+@GetMapping("/usuarioId/{usuarioId}")
+public ResponseEntity<List<Experiencia>> getEducacionesByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
+    List<Experiencia> exp = sExperiencia.findByUsuarioIdOrderByEndEDesc(usuarioId);
+    return new ResponseEntity<>(exp, HttpStatus.OK);
+}
+
         
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {

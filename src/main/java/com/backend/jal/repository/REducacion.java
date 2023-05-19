@@ -18,4 +18,6 @@ public interface REducacion extends JpaRepository<Educacion, Integer> {
     public List<Educacion> findByUsuarioId(int usuarioId);
 
     public void deleteByUsuarioId(int usuarioId);
+
+    public List<Educacion> findByUsuarioIdOrderByEndEDesc(int usuarioId);
 }

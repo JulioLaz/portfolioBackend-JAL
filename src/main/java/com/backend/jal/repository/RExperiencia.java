@@ -18,4 +18,6 @@ public interface RExperiencia extends JpaRepository<Experiencia, Integer> {
     public List<Experiencia> findByUsuarioId(int usuarioId);
 
     public void deleteByUsuarioId(int usuarioId);
+
+    public List<Experiencia> findByUsuarioIdOrderByEndEDesc(int usuarioId);
 }

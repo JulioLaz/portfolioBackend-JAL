@@ -22,7 +22,6 @@ public class SExperiencia {
 //    public List<Experiencia> listOrderBy() {
 //        return rExperiencia.findAllByOrderByEndEDesc();
 //    }
-    
     public List<Experiencia> listOrderByEndEDesc() {
         return rExperiencia.findAllByOrderByEndEDesc();
     }
@@ -57,6 +56,10 @@ public class SExperiencia {
 
     public void deleteUsuarioId(int usuarioId) {
         rExperiencia.deleteByUsuarioId(usuarioId);
+    }
+
+    public List<Experiencia> findByUsuarioIdOrderByEndEDesc(int usuarioId) {
+        return rExperiencia.findByUsuarioIdOrderByEndEDesc(usuarioId);
     }
 
 }
