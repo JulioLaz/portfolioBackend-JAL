@@ -24,14 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-julio-lazarte.web.app"})
 
 public class CExperiencia {
-private final SExperiencia sExperiencia;
-//    @Autowired
-////    SExperiencia sExperiencia;
-    
+
     @Autowired
-    public CExperiencia(SExperiencia sExperiencia) {
-    this.sExperiencia = sExperiencia;
-    }
+    SExperiencia sExperiencia;
 
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list() {
@@ -39,19 +34,12 @@ private final SExperiencia sExperiencia;
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-//    @GetMapping("/usuarioId/{usuarioId}")
-//        public ResponseEntity<List<Experiencia>> getIdiomasByUsuarioId(@PathVariable("usuarioId") int usuarioId){
-//        List<Experiencia> exp = sExperiencia.findByUsuarioId(usuarioId);
-//        return new ResponseEntity(exp, HttpStatus.OK);
-//    }
+    @GetMapping("/usuarioId/{usuarioId}")
+    public ResponseEntity<List<Experiencia>> getEducacionesByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
+        List<Experiencia> exp = sExperiencia.findByUsuarioIdOrderByEndEDesc(usuarioId);
+        return new ResponseEntity<>(exp, HttpStatus.OK);
+    }
 
-@GetMapping("/usuarioId/{usuarioId}")
-public ResponseEntity<List<Experiencia>> getEducacionesByUsuarioId(@PathVariable("usuarioId") int usuarioId) {
-    List<Experiencia> exp = sExperiencia.findByUsuarioIdOrderByEndEDesc(usuarioId);
-    return new ResponseEntity<>(exp, HttpStatus.OK);
-}
-
-        
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
@@ -69,24 +57,23 @@ public ResponseEntity<List<Experiencia>> getEducacionesByUsuarioId(@PathVariable
         sExperiencia.delete(id);
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
+
     @DeleteMapping("/deleteUsuarioId/{usuarioId}")
-    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId){
+    public ResponseEntity<?> deleteUsuarioId(@PathVariable("usuarioId") int usuarioId) {
         sExperiencia.deleteUsuarioId(usuarioId);
         return new ResponseEntity(new Mensaje("Experiencia eliminada por usuarioId"), HttpStatus.OK);
     }
-    
-    
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp) {
         if (StringUtils.isBlank(dtoexp.getNombreE())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        
+
 //        if (sExperiencia.existsByNombreE(dtoexp.getNombreE())) {
 //            return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
 //        }
-
-        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(),dtoexp.getCargoE(),dtoexp.getDescripcionE(),dtoexp.getStartE(),dtoexp.getEndE(),dtoexp.getCityE(),dtoexp.getUsuarioId());
+        Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getCargoE(), dtoexp.getDescripcionE(), dtoexp.getStartE(), dtoexp.getEndE(), dtoexp.getCityE(), dtoexp.getUsuarioId());
         sExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -99,11 +86,10 @@ public ResponseEntity<List<Experiencia>> getEducacionesByUsuarioId(@PathVariable
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
         //Compara nombre de experiencias
-        
+
 //        if (sExperiencia.existsByNombreE(dtoexp.getNombreE()) && sExperiencia.getByNombreE(dtoexp.getNombreE()).get().getId() != id) {
 //            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
 //        }
-
         //No puede estar vacio
         if (StringUtils.isBlank(dtoexp.getNombreE())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);

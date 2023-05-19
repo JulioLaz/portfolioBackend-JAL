@@ -19,9 +19,6 @@ public class SExperiencia {
         return rExperiencia.findAll();
     }
 
-//    public List<Experiencia> listOrderBy() {
-//        return rExperiencia.findAllByOrderByEndEDesc();
-//    }
     public List<Experiencia> listOrderByEndEDesc() {
         return rExperiencia.findAllByOrderByEndEDesc();
     }
