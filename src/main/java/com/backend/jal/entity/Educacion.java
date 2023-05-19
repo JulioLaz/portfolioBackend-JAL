@@ -17,8 +17,8 @@ public class Educacion implements Serializable {
     private String schoolE;
     private String titleE;
     private String timeE;
-    private String startE;
-    private String endE;
+    private int startE;
+    private int endE;
     private String estadoE;
     private String cityE;
     private String imgE;
@@ -27,7 +27,7 @@ public class Educacion implements Serializable {
     public Educacion() {
     }
 
-    public Educacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE, int usuarioId) {
+    public Educacion(String schoolE, String titleE, String timeE, int startE, int endE, String estadoE, String cityE, String imgE, int usuarioId) {
         this.schoolE = schoolE;
         this.titleE = titleE;
         this.timeE = timeE;
@@ -39,14 +39,6 @@ public class Educacion implements Serializable {
         this.usuarioId = usuarioId;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-    
     public int getId() {
         return id;
     }
@@ -79,20 +71,28 @@ public class Educacion implements Serializable {
         this.timeE = timeE;
     }
 
-    public String getStartE() {
+    public int getStartE() {
         return startE;
     }
 
-    public void setStartE(String startE) {
+    public void setStartE(int startE) {
         this.startE = startE;
     }
 
-    public String getEndE() {
+    public int getEndE() {
         return endE;
     }
 
-    public void setEndE(String endE) {
+    public void setEndE(int endE) {
         this.endE = endE;
+    }
+
+    public String getEstadoE() {
+        return estadoE;
+    }
+
+    public void setEstadoE(String estadoE) {
+        this.estadoE = estadoE;
     }
 
     public String getCityE() {
@@ -111,12 +111,12 @@ public class Educacion implements Serializable {
         this.imgE = imgE;
     }
 
-    public String getEstadoE() {
-        return estadoE;
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setEstadoE(String estadoE) {
-        this.estadoE = estadoE;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
 }

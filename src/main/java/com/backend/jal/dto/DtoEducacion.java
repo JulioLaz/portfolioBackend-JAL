@@ -3,6 +3,7 @@ package com.backend.jal.dto;
 import javax.validation.constraints.NotBlank;
 
 public class DtoEducacion {
+
     @NotBlank
     private String schoolE;
     @NotBlank
@@ -10,9 +11,9 @@ public class DtoEducacion {
     @NotBlank
     private String timeE;
     @NotBlank
-    private String startE;
+    private int startE;
     @NotBlank
-    private String endE;
+    private int endE;
     @NotBlank
     private String estadoE;
     @NotBlank
@@ -25,7 +26,7 @@ public class DtoEducacion {
     public DtoEducacion() {
     }
 
-    public DtoEducacion(String schoolE, String titleE, String timeE, String startE, String endE, String estadoE, String cityE, String imgE, int usuarioId) {
+    public DtoEducacion(String schoolE, String titleE, String timeE, int startE, int endE, String estadoE, String cityE, String imgE, int usuarioId) {
         this.schoolE = schoolE;
         this.titleE = titleE;
         this.timeE = timeE;
@@ -34,14 +35,6 @@ public class DtoEducacion {
         this.estadoE = estadoE;
         this.cityE = cityE;
         this.imgE = imgE;
-        this.usuarioId = usuarioId;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
     }
 
@@ -69,19 +62,19 @@ public class DtoEducacion {
         this.timeE = timeE;
     }
 
-    public String getStartE() {
+    public int getStartE() {
         return startE;
     }
 
-    public void setStartE(String startE) {
+    public void setStartE(int startE) {
         this.startE = startE;
     }
 
-    public String getEndE() {
+    public int getEndE() {
         return endE;
     }
 
-    public void setEndE(String endE) {
+    public void setEndE(int endE) {
         this.endE = endE;
     }
 
@@ -107,6 +100,14 @@ public class DtoEducacion {
 
     public void setImgE(String imgE) {
         this.imgE = imgE;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
 }

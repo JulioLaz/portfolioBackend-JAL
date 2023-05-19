@@ -15,28 +15,21 @@ public class Experiencia implements Serializable {
     private String nombreE;
     private String cargoE;
     private String descripcionE;
-    private String startE;
-    private String endE;
+    private int startE;
+    private int endE;
     private String cityE;
     private int usuarioId;
     
     public Experiencia() {
     }
-    public Experiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE, int usuarioId) {
+
+    public Experiencia(String nombreE, String cargoE, String descripcionE, int startE, int endE, String cityE, int usuarioId) {
         this.nombreE = nombreE;
         this.cargoE = cargoE;
         this.descripcionE = descripcionE;
         this.startE = startE;
         this.endE = endE;
         this.cityE = cityE;
-        this.usuarioId = usuarioId;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
     }
 
@@ -72,19 +65,19 @@ public class Experiencia implements Serializable {
         this.descripcionE = descripcionE;
     }
 
-    public String getStartE() {
+    public int getStartE() {
         return startE;
     }
 
-    public void setStartE(String startE) {
+    public void setStartE(int startE) {
         this.startE = startE;
     }
 
-    public String getEndE() {
+    public int getEndE() {
         return endE;
     }
 
-    public void setEndE(String endE) {
+    public void setEndE(int endE) {
         this.endE = endE;
     }
 
@@ -95,6 +88,15 @@ public class Experiencia implements Serializable {
     public void setCityE(String cityE) {
         this.cityE = cityE;
     }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+   
 
 
 }

@@ -24,15 +24,18 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"http://localhost:4200", "https://portfolio-julio-lazarte.web.app"})
 
 public class CExperiencia {
-
+private final SExperiencia sExperiencia;
+//    @Autowired
+////    SExperiencia sExperiencia;
+    
     @Autowired
-    SExperiencia sExperiencia;
+    public CExperiencia(SExperiencia sExperiencia) {
+    this.sExperiencia = sExperiencia;
+    }
 
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list() {
-        List<Experiencia> list = sExperiencia.listOrderBy();
-//        List<Experiencia> list = sExperiencia.list();
-        
+        List<Experiencia> list = sExperiencia.listOrderByEndEDesc();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 

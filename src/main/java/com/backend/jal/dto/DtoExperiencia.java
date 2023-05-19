@@ -11,32 +11,24 @@ public class DtoExperiencia {
     @NotBlank
     private String descripcionE;
     @NotBlank
-    private String startE;
+    private int startE;
     @NotBlank
-    private String endE;
+    private int endE;
     @NotBlank
     private String cityE;
     @NotBlank
     private int usuarioId;
-    
+
     public DtoExperiencia() {
     }
 
-    public DtoExperiencia(String nombreE, String cargoE, String descripcionE, String startE, String endE, String cityE, int usuarioId) {
+    public DtoExperiencia(String nombreE, String cargoE, String descripcionE, int startE, int endE, String cityE, int usuarioId) {
         this.nombreE = nombreE;
         this.cargoE = cargoE;
         this.descripcionE = descripcionE;
         this.startE = startE;
         this.endE = endE;
         this.cityE = cityE;
-        this.usuarioId = usuarioId;
-    }
-
-    public int getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
     }
 
@@ -64,19 +56,19 @@ public class DtoExperiencia {
         this.descripcionE = descripcionE;
     }
 
-    public String getStartE() {
+    public int getStartE() {
         return startE;
     }
 
-    public void setStartE(String startE) {
+    public void setStartE(int startE) {
         this.startE = startE;
     }
 
-    public String getEndE() {
+    public int getEndE() {
         return endE;
     }
 
-    public void setEndE(String endE) {
+    public void setEndE(int endE) {
         this.endE = endE;
     }
 
@@ -88,5 +80,12 @@ public class DtoExperiencia {
         this.cityE = cityE;
     }
 
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
 }

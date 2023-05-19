@@ -7,50 +7,51 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
 public class SEducacion {
+
     @Autowired
     REducacion rEducacion;
-//    findAllByOrderByTimeEDesc
-    public List<Educacion> list(){
+
+    public List<Educacion> list() {
         return rEducacion.findAll();
     }
-    
-    public List<Educacion> listORderBy(){
-        return rEducacion.findAllByOrderByTimeEDesc();
+
+    public List<Educacion> listOrderByEndEDesc() {
+        return rEducacion.findAllByOrderByEndEDesc();
     }
-    
-    public Optional<Educacion> getOne(int id){
+
+    public Optional<Educacion> getOne(int id) {
         return rEducacion.findById(id);
     }
-    
-    public Optional<Educacion> getBySchoolE(String schoolE){
+
+    public Optional<Educacion> getBySchoolE(String schoolE) {
         return rEducacion.findBySchoolE(schoolE);
     }
-    
-    public void save(Educacion educacion){
+
+    public void save(Educacion educacion) {
         rEducacion.save(educacion);
     }
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         rEducacion.deleteById(id);
     }
-    
-    public boolean existsById(int id){
+
+    public boolean existsById(int id) {
         return rEducacion.existsById(id);
     }
-    
-    public boolean existsBySchoolE(String schoolE){
+
+    public boolean existsBySchoolE(String schoolE) {
         return rEducacion.existsBySchoolE(schoolE);
     }
-             
-    public List<Educacion> findByUsuarioId(int usuarioId){
-        return rEducacion.findByUsuarioId( usuarioId);
+
+    public List<Educacion> findByUsuarioId(int usuarioId) {
+        return rEducacion.findByUsuarioId(usuarioId);
     }
-    public void deleteUsuarioId(int usuarioId){
+
+    public void deleteUsuarioId(int usuarioId) {
         rEducacion.deleteByUsuarioId(usuarioId);
-    }    
+    }
 }

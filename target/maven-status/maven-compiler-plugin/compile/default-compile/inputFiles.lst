@@ -1,11 +1,9 @@
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\controller\CIdiomas.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\repository\RCursos.java
-C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\repository\RUser.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\entity\UsuarioPrincipal.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\enums\RolNombre.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\controller\CProyectos.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\correo\config\ThymeleafTemplateConfig.java
-C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\dto\DtoUser.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\repository\RFrases.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\entity\Educacion.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\controller\CFrases.java
@@ -24,7 +22,6 @@ C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\controller\CEducacion.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\dto\DtoPersona.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\service\UsuarioService.java
-C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\service\SUser.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\repository\RHardAndSSkills.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\dto\DtoFrases.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\dto\LoginUsuario.java
@@ -38,7 +35,6 @@ C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\entity\HardAndSSkills.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\jwt\JwtTokenFilter.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\principal\Enviar.java
-C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\controller\CUser.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\repository\RIdiomas.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\jwt\JwtEntryPoint.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\correo\service\CorreoService.java
@@ -68,4 +64,3 @@ C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\dto\DtoEducacion.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\dto\DtoHardAndSSkills.java
 C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\security\dto\JwtDto.java
-C:\Users\vivia\OneDrive\Desktop\portafolioBackend-JAL\src\main\java\com\backend\jal\entity\User.java
