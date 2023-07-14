@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Educacion implements Serializable {
@@ -23,7 +21,8 @@ public class Educacion implements Serializable {
     private String cityE;
     private String imgE;
     private int usuarioId;
-    
+
+  
     public Educacion() {
     }
 

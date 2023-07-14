@@ -1,8 +1,6 @@
 package com.backend.jal.dto;
 
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 public class DtoPersona {
 
@@ -14,32 +12,18 @@ public class DtoPersona {
 //    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String nombre;
 
-//    @NotNull
-//    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String apellido;
 
-//    @NotNull
-//    @Size(min = 1, max = 300, message = "No cumple con especificaciones")
     private String img;
 
-//    @NotNull
-//    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String title;
 
-//    @NotNull
-//    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String edad;
 
-//    @NotNull
-//    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String city;
 
-//    @NotNull
-//    @Size(min = 1, max = 50,message = "No cumple con especificaciones")
     private String titleAbout;
 
-//    @NotNull
-//    @Size(min = 1, max = 500, message = "No cumple con especificaciones")
     private String about;
 
     public DtoPersona() {
