@@ -1,23 +1,85 @@
 <!DOCTYPE html>
-<!--<html lang="en">-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title th:remove="all">Change-password</title>
-        <!--<link rel="stylesheet" type="text/css" href="StyleTemplates.css" />-->
+        <link rel="stylesheet" type="text/css" href="StyleTemplates.css" />
     </head>
     <body>
         <div style="border:1px solid black;border-radius: 10px;background-color: gray">
                 <h2 style="text-align: center;color: red" >Recuperar Contraseña</h2>
                 <h3 style="text-align: center" ><span>Hola </span><span th:text="${userName}"></span></h3>
                 <h4 style="font-size: 16px; color:darkblue;text-align: center ">Haz click en el siguiente enlace para acceder a tu cuenta</h4>
-                <!--<div style="display: flex;justify-content: center;width: 100%;border: 1px solid black;text-align: center">-->
+                <div style="display: flex;justify-content: center;width: 100%;border: 1px solid black;text-align: center">
                 <a th:href="@{${url}}" style="text-decoration: none">
                         <button style="background-color:lightblue;border:1px solid black;border-radius: 10px;margin:20px 40%; width: 200px;height: 50px;font-size: 14px;">
                         Ir a mi cuenta
                         </button>
                     </a>
-                <!--</div>-->
+                </div>
         </div>
     </body>
+</html>-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:remove="all">Cambio de contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        h2 {
+            text-align: center;
+            color: red;
+            margin-top: 0;
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        h4 {
+            font-size: 16px;
+            color: darkblue;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .button {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            background-color: lightblue;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperar Contraseña</h2>
+        <h3>Hola <span th:text="${userName}"></span></h3>
+        <h4>Haz clic en el siguiente enlace para acceder a tu cuenta:</h4>
+        <a th:href="@{${url}}" class="button">Ir a mi cuenta</a>
+    </div>
+</body>
 </html>
